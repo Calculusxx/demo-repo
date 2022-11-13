@@ -22,7 +22,7 @@ reverseArray(int numbers[], int start, int end){        //reversing an array
    secondMax=arr[i];}}
    return secondMax}
    
-  oid moveZerosToEnd(int[] arr) {                            //1st method to move zeros to end
+  void moveZerosToEnd(int[] arr) {                            //1st method to move zeros to end
         int n=arr.length;                                    //2nd method, we can think of filling an new array with only non zero
         int end=arr.length-1;                                //elements and then adding the zeros at the end while respecting the length
         for(int i=0; i<n; i++) {
@@ -33,6 +33,8 @@ reverseArray(int numbers[], int start, int end){        //reversing an array
             }
         }
     }
+   
+    
 
     void printArr(int[] arr) {                           //prints array
         int n = arr.length;
@@ -61,6 +63,7 @@ reverseArray(int numbers[], int start, int end){        //reversing an array
    //how to resize an array in java (why? cus we cant know the exact number of elements at the time of initialization)
    (what happens in an arraylist is that resizing implies creating a new array, copying the elements to the new array
    then the original array points to this new array)
+   
    public void resize(int[] arr, int capacity){ //capacity is the size that we want in the new array
    int[] temp = new int[capacity]
    for(int i=0;i<arr.length;i++){
@@ -68,11 +71,21 @@ reverseArray(int numbers[], int start, int end){        //reversing an array
    arr=temp;
    }
    
+   //find the missing number in an array (given an array of n-1 distinct numbers in the range of 
+   1 to n, find the missing number in it) O(n) time complexity
+   METHOD: using the mathematical formula of sum: n*(n+1)/2 
    
    
+   int findMissingNumber(int arr[]){
+   int n=arr.length +1;
+   int formula=(n*(n+1))/2; 
+   int S=0;
+   for(int i : arr){
+   S+=arr[i];}
+   int missing= formula - S;
+   return missing;}
    
    
-   
-   
+   //how to check if a given string is a palindrome
    
    
