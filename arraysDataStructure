@@ -1,0 +1,78 @@
+declaring an array: int array[]; or int[] array;
+initializing an array: array = new int[100]; or int[] array = {1,2,3,4,5} if u know the actual data.
+
+
+reverseArray(int numbers[], int start, int end){        //reversing an array
+ while(start<end){  //start and end are pointers
+   int temp=numbers[start];
+   numbers[start]=numbers[end];
+   numbers[end]=temp;
+   end--;
+   start++;
+   } }            and so reversing an array is reverseArray(numbers,0,n-1);
+ 
+ int findSecondMax(int[] arr){                             //finding 2nd max of an array
+ int max = Integer.MIN_VALUE;
+ int secondMax = Integer.MAX_VALUE;
+ for(int i=0;i<arr.length;i++){
+   if (arr[i]>max){
+   secondMax = max;
+   max=arr[i];}
+   else if (arr[i]>secondMax && arr[i]!=max){
+   secondMax=arr[i];}}
+   return secondMax}
+   
+  oid moveZerosToEnd(int[] arr) {                            //1st method to move zeros to end
+        int n=arr.length;                                    //2nd method, we can think of filling an new array with only non zero
+        int end=arr.length-1;                                //elements and then adding the zeros at the end while respecting the length
+        for(int i=0; i<n; i++) {
+            if(arr[i]==0 && i<end) {
+                arr[i]=arr[end];
+                arr[end]=0;
+                end--;
+            }
+        }
+    }
+
+    void printArr(int[] arr) {                           //prints array
+        int n = arr.length;
+        for(int i=0; i<n; i++) {
+            System.out.print(arr[i]+" ");
+        }
+    }
+   
+   //j focuses on zero elements(so it doesnt move from a zero element until it swipes with a non zero
+   one & i focuses on non zero elements, thus when j is on a zero element and i on a non zero
+   element it swipes)
+   (even if i and j are both pointing to zero, i should increment so it can swipe, so technically the swipe
+   happens always with i>j which means 0 goes to the end of the array by all means)
+   
+   public void movezeros(int[] arr, int n){
+   int j=0;
+   for(int i=0;i<n;i++){
+    if(arr[i]!=0 && arr[j]==0){
+     int temp=arr[i];
+     arr[i]=arr[j];
+     arr[j]=temp;}
+    if(arr[j]!=0){
+     j++;}
+   }
+   
+   //how to resize an array in java (why? cus we cant know the exact number of elements at the time of initialization)
+   (what happens in an arraylist is that resizing implies creating a new array, copying the elements to the new array
+   then the original array points to this new array)
+   public void resize(int[] arr, int capacity){ //capacity is the size that we want in the new array
+   int[] temp = new int[capacity]
+   for(int i=0;i<arr.length;i++){
+   temp[i]=arr[i];}
+   arr=temp;
+   }
+   
+   
+   
+   
+   
+   
+   
+   
+   
