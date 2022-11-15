@@ -88,4 +88,12 @@ reverseArray(int numbers[], int start, int end){        //reversing an array
    
    //how to check if a given string is a palindrome
    
-   
+   public boolean isPalindrome (String word){
+      char[] arr = word.toCharArray();                     //toCharArray transforms a string to a characters array
+      int end=arr.length-1;
+      int start=0;
+      while (start<end) {
+        if(arr[start]!=arr[end]) return false;
+        start++;
+        end--; }
+        return true; }
