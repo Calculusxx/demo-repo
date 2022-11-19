@@ -1,0 +1,101 @@
+// a singly linked list contains a sequence of nodes, each node contains data + a reference to to the
+next node, first node is the head node(holds the complete linkedlist), last node has data and points to null. 
+
+//Generic Type 
+public class ListNode<T> {
+private T data;
+private ListNode<T> next; }
+
+
+public class SinglyLinkedList {
+
+private ListNode head;
+
+private static class ListNode {
+private int data;
+private ListNode next;
+
+public ListNode(int data){
+this.data = data;
+this.next = null; }
+
+//Creating a singlyLinkedList of two elements example:
+head = new ListNode(10);
+listNode second = ListNode(1);
+head.next = second; 
+listNode third = ListNode(2);
+second.next = third;
+
+//Prints elements of a singly linkedlist 
+
+public void printList (){
+ListNode temp = head;
+while (temp != null) {
+System.out.println(temp.data + "-->");
+temp = temp.next; }
+System.out.println("null"); }
+
+//Find lenfth of a singly linkedlist
+
+public int findLength(listNode head) {
+if (head == null) return 0;
+return 1 + findLength(head.next); }
+
+public int findLength() {
+if (head == null)
+listNode current = head;
+while(current!=null){
+count++;
+current=current.next(); }
+return count;
+}
+
+
+//Insert a node at the beginning of a singly linkedList
+
+public void insertBeginning (int value) {
+nodeList node = new nodeList(value);
+node.next = head;
+head= node;}
+
+//Insert a node at the end of a Singly LinkedList 
+
+public void insertEnd (int value) {
+nodeList node = new nodeList(value);
+if (head == null ) {
+head = node; return; }
+nodeList current = head;
+while (current.next != null)
+current = current.next; }
+current.next = node;
+}
+
+//Insert a node in a linkedList at a given position
+
+public void insertPosition (listNode position, int value) {
+listNode node = new listNode(value);
+listNode current = head;
+while(current.next != position) {
+current = current.next; }
+
+node.next = position;
+current.next = node; } 
+
+//Another method of inserting a node at a given position and starting by head is position 1
+
+public void insertPosition(int position, int data){
+ListNode node = new ListNode(data);
+if (position == 1){
+node.next = head;
+head = node;
+}
+else {
+ListNode previous = head; 
+int count = 1 ; //cus we are already in position 1
+while(count < position -1) {
+previous=previous.next; count ++}
+listNode current = previous.next;
+node.next = current;
+previoys.next = node}
+
+     
