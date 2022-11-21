@@ -1,0 +1,57 @@
+//Selection Sort logic://////////////
+- We divide the given array into two parts, sorted and unsorted.
+-The algorithm sorts an array by repeatedly finding the minimum in an unsorted array and making it part
+of the sorted array.
+-From unsorted part, we pick minimum element and swap it with the leftmost element of unsorted part. 
+After swap, the element now becomes part of the sorted array.
+-It's repeated till unsorted array is not empty.
+
+FIRST IMPLEMENTATION
+
+public void sort(int[] T){
+int n = T.length;
+for(int i=0;i<n;i++){
+ for(int j=i+1;j<n;j++){     //we always try to have the minimum element of the unsorted part join the sorted part
+  if(T[i]>T[j]){
+  temp = T[i];
+  T[i]=T[j];
+  T[j]=temp;}
+  }}}
+  
+  2ND IMPLEMENTATION 
+  
+  public void sort(int[] arr)
+  int n = arr.length;
+  for(int i=0;i++;i<n){
+  min = i;
+  for(int j=0;j<n;j++){
+  if(arr[i]>arr[j]){  //without swiping elements each time, we find the min first then swipe;
+  min = j;
+  }
+  temp = arr[min];
+  arr[min]=arr[i];
+  arr[i]=temp;
+  }
+  
+  ////////////MERGE TWO SORTED ARRAYS//////////////////////////////////////////////////////////////
+  
+  public int mergeSortedArrays(int[] arr1, int[] arr2){
+  int n1 = arr1.length;
+  int n2 = arr2.length;
+  int i=0; int j=0;
+  int k=0;
+  int[] newArray = new int[n1+n2];
+  while(i<n1 && j<n2){
+  if(arr1[i]<arr2[j]){ newArray[k]=arr1[i];
+  i++; k++}
+  if(arr1[i]>arr2[j]{
+  newArray[k]=arr2[j];
+  j++;k++}
+  
+  while (i<n1){newArray[k]=arr1[i];i++;k++;}
+  while (j<n2){newArray[k]=arr2[j];j++;k++}
+  
+  return newArray;
+  //////////////MERGE SORT ALGORITHM//////////////////////////////////////////////////////////////
+  
+  
