@@ -85,7 +85,7 @@ current.next = node; }
 
 public void insertPosition(int position, int data){
 ListNode node = new ListNode(data);
-if (position == 1){
+if (position == 1){ //we gave head position number 1
 node.next = head;
 head = node;
 }
@@ -96,6 +96,6 @@ while(count < position -1) {
 previous=previous.next; count ++}
 listNode current = previous.next;
 node.next = current;
-previoys.next = node}
+previous.next = node}
 
      
