@@ -58,7 +58,7 @@ nodeList node = new nodeList(value);
 node.next = head;
 head= node;}
 
-//Insert a node at the end of a Singly LinkedList 
+////////////////////////Insert a node at the end of a Singly LinkedList///////////// 
 
 public void insertEnd (int value) {
 nodeList node = new nodeList(value);
@@ -70,7 +70,7 @@ current = current.next; }
 current.next = node;
 }
 
-//Insert a node in a linkedList at a given position
+//////////Insert a node in a linkedList at a given position////////////////////
 
 public void insertPosition (listNode position, int value) {
 listNode node = new listNode(value);
@@ -81,7 +81,7 @@ current = current.next; }
 node.next = position;
 current.next = node; } 
 
-//Another method of inserting a node at a given position and starting by head is position 1
+////////Another method of inserting a node at a given position and starting by head is position 1//
 
 public void insertPosition(int position, int data){
 ListNode node = new ListNode(data);
@@ -98,4 +98,70 @@ listNode current = previous.next;
 node.next = current;
 previous.next = node}
 
-     
+//////////////Delete first node of a Singly linked list////////////////////////////////
+
+public listNode deleteFirstNode(){
+if(head == null) return null; //empty linked list
+listNode temp = head;
+head=head.next;
+temp.next=null; //cus the previous head shouldnt lead us to the linkedlist anymore
+return temp; //the element that we deleted 
+
+////////////Delete last node of a Singly linked list//////////////////////
+
+public listNode deleteLastNode(){
+listNode temp = head;
+while (temp.next != null){
+prev=temp;
+temp = temp.next;}
+prev.next=null;
+return temp;}
+
+////////Delete a node from a singly linked list at a given position /////////////////
+
+public listNode deleteGivenPosition(int position){
+ListNode temp = head;
+if (head == null) return null;
+if(position == 1) {temp=head; head=head.next; return head;}
+int count = 1; //we are at head
+ListNode prev = head;
+while(count<position -1){
+count++;
+prev = prev.next;
+} //prev is at position -1 at end of loop
+ListNode current = prev.next; //current is at the given position
+prev.next=current.next;
+return current;
+}
+ 
+////////////////////Search an element in a singly linkedList(whether it exists or no ///////////////////////////////
+public listNode searchElement(int data){
+listNode current = head;
+while(current!=null){
+if(current.data == data) return true;
+current=current.next;}
+return false;}
+/////////////////Reversing a singly linkedlist///////////////////////////////////////////////
+public void reverseLinkedList(){ //we work on each node points to the one before and so we only get to use 
+listNode current= head;
+ListNode next=null;
+ListNode prev= null;
+while(current!=null){
+next=current.next;   
+current.next=prev;  
+prev=current; //to traverse the linked list prev holds the current and the current holds next 
+current=next;
+}
+return prev;} //last node which after reversing becomes head
+
+/////////////Find middle node of a linkedlist////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
